@@ -12,6 +12,7 @@ def index() -> Response:
 
 @bot_rt.route('/set-webhook', methods=['GET'])
 def set_webhook() -> Response:    
+    print(Service.TELEGRAM_BOT['webhook'])
     TelegramBotService.set_webhook(Service.TELEGRAM_BOT['webhook'])
     return 'ok', StatusCode.HTTP_200_OK
 

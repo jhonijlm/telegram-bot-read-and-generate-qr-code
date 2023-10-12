@@ -1,16 +1,15 @@
-from pyzbar.pyzbar import decode
-import cv2
 import qrcode
+import zxing
 
 class QrCodeService:
     def read(self, file_path: str) -> str:                
-        img = cv2.imread(file_path)        
-        data = decode(img)             
+        reader = zxing.BarCodeReader()
+        barcode = reader.decode(file_path)
         
         text = None
-        if len(data) > 0 and data[0].type == 'QRCODE':
-            text = data[0].data.decode('utf-8')
-        
+        if barcode.format == 'QR_CODE' and len(barcode.parsed) > 0:
+            text = barcode.parsed
+            
         return text
 
     

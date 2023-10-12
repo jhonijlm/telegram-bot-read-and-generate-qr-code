@@ -30,6 +30,8 @@ $ copy .env-example .env
 ```
 __.env__ file
 ```Enable virtual environment
+APP_ENV=true
+
 TELEGRAM_BOT_NAME=
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_BOT_WEBHOOK=
